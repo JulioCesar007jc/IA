@@ -1,0 +1,501 @@
+Fecha,ID_Producto,Nombre_Producto,Categoria,Cantidad_Vendida,Precio_Unitario,Promocion
+2024-01-04,V-111,Tomate Italiano (kg),Verduras,77,1.3,No
+2024-01-05,F-202,Manzana Fuji,Frutas,42,1.5,No
+2024-01-06,C-270,Pollo (kg),Carnes,92,5.5,No
+2024-01-06,V-021,Papa Amarilla (kg),Verduras,113,1.0,No
+2024-01-08,V-496,Lechuga Americana,Verduras,35,0.8,No
+2024-01-09,A-380,Arroz (Bolsa 1kg),Abarrotes,80,2.1,No
+2024-01-10,C-055,Carne Molida (kg),Carnes,29,6.2,No
+2024-01-10,F-337,Naranja (kg),Frutas,40,0.9,No
+2024-01-13,A-127,Aceite Vegetal (1L),Abarrotes,281,3.5,Si
+2024-01-16,V-171,Papa Amarilla (kg),Verduras,44,1.0,No
+2024-01-27,C-376,Carne Molida (kg),Carnes,59,6.2,No
+2024-01-27,F-468,Plátano de Seda,Frutas,110,1.2,Si
+2024-01-28,V-492,Tomate Italiano (kg),Verduras,95,1.3,No
+2024-01-29,A-423,Aceite Vegetal (1L),Abarrotes,88,3.5,No
+2024-01-30,V-215,Papa Amarilla (kg),Verduras,58,1.0,No
+2024-02-01,A-459,Aceite Vegetal (1L),Abarrotes,90,3.5,No
+2024-02-01,F-313,Plátano de Seda,Frutas,58,1.2,No
+2024-02-01,A-482,Aceite Vegetal (1L),Abarrotes,95,3.5,No
+2024-02-03,A-467,Huevos (docena),Abarrotes,114,2.5,No
+2024-02-06,A-191,Huevos (docena),Abarrotes,81,2.5,No
+2024-02-07,A-154,Arroz (Bolsa 1kg),Abarrotes,95,2.1,No
+2024-02-12,F-151,Plátano de Seda,Frutas,74,1.2,No
+2024-02-12,F-308,Plátano de Seda,Frutas,56,1.2,No
+2024-02-13,V-479,Papa Amarilla (kg),Verduras,78,1.0,No
+2024-02-14,A-095,Aceite Vegetal (1L),Abarrotes,136,3.5,Si
+2024-02-14,F-236,Naranja (kg),Frutas,33,0.9,No
+2024-02-15,V-011,Zanahoria (kg),Verduras,27,0.7,No
+2024-02-16,V-414,Zanahoria (kg),Verduras,46,0.7,No
+2024-02-17,A-240,Pan de Molde,Abarrotes,41,3.0,No
+2024-02-17,F-422,Naranja (kg),Frutas,71,0.9,No
+2024-02-19,C-084,Pollo (kg),Carnes,87,5.5,Si
+2024-02-20,F-396,Plátano de Seda,Frutas,71,1.2,No
+2024-02-24,F-418,Naranja (kg),Frutas,80,0.9,No
+2024-02-25,C-047,Pollo (kg),Carnes,116,5.5,Si
+2024-02-26,V-303,Zanahoria (kg),Verduras,41,0.7,No
+2024-02-28,F-328,Plátano de Seda,Frutas,58,1.2,No
+2024-02-29,F-366,Plátano de Seda,Frutas,66,1.2,No
+2024-02-29,F-093,Naranja (kg),Frutas,40,0.9,No
+2024-02-29,A-413,Aceite Vegetal (1L),Abarrotes,77,3.5,No
+2024-03-04,V-330,Papa Amarilla (kg),Verduras,71,1.0,No
+2024-03-04,V-258,Tomate Italiano (kg),Verduras,68,1.3,No
+2024-03-04,A-369,Arroz (Bolsa 1kg),Abarrotes,78,2.1,No
+2024-03-04,V-247,Zanahoria (kg),Verduras,47,0.7,No
+2024-03-08,F-406,Manzana Fuji,Frutas,42,1.5,No
+2024-03-09,V-417,Papa Amarilla (kg),Verduras,115,1.0,No
+2024-03-10,C-278,Carne Molida (kg),Carnes,113,6.2,Si
+2024-03-13,C-027,Pollo (kg),Carnes,63,5.5,No
+2024-03-14,A-199,Aceite Vegetal (1L),Abarrotes,70,3.5,No
+2024-03-14,V-132,Tomate Italiano (kg),Verduras,53,1.3,No
+2024-03-14,V-382,Tomate Italiano (kg),Verduras,76,1.3,No
+2024-03-15,A-279,Arroz (Bolsa 1kg),Abarrotes,55,2.1,No
+2024-03-15,A-446,Aceite Vegetal (1L),Abarrotes,72,3.5,No
+2024-03-16,C-425,Pollo (kg),Carnes,167,5.5,Si
+2024-03-17,V-225,Papa Amarilla (kg),Verduras,95,1.0,No
+2024-03-17,V-197,Tomate Italiano (kg),Verduras,136,1.3,No
+2024-03-19,F-220,Plátano de Seda,Frutas,65,1.2,No
+2024-03-21,F-480,Naranja (kg),Frutas,39,0.9,No
+2024-03-22,V-065,Zanahoria (kg),Verduras,83,0.7,Si
+2024-03-22,A-156,Arroz (Bolsa 1kg),Abarrotes,83,2.1,No
+2024-03-22,V-498,Zanahoria (kg),Verduras,42,0.7,No
+2024-03-24,F-026,Plátano de Seda,Frutas,80,1.2,No
+2024-03-26,V-067,Tomate Italiano (kg),Verduras,65,1.3,No
+2024-03-27,A-189,Huevos (docena),Abarrotes,64,2.5,No
+2024-03-27,V-394,Papa Amarilla (kg),Verduras,59,1.0,No
+2024-03-28,V-102,Lechuga Americana,Verduras,26,0.8,No
+2024-03-29,F-224,Naranja (kg),Frutas,37,0.9,No
+2024-03-29,A-175,Arroz (Bolsa 1kg),Abarrotes,65,2.1,No
+2024-03-31,C-112,Carne Molida (kg),Carnes,151,6.2,Si
+2024-04-01,A-174,Arroz (Bolsa 1kg),Abarrotes,76,2.1,No
+2024-04-04,V-044,Papa Amarilla (kg),Verduras,63,1.0,No
+2024-04-09,A-218,Arroz (Bolsa 1kg),Abarrotes,78,2.1,No
+2024-04-12,V-412,Lechuga Americana,Verduras,30,0.8,No
+2024-04-18,F-360,Naranja (kg),Frutas,70,0.9,Si
+2024-04-19,V-275,Zanahoria (kg),Verduras,34,0.7,No
+2024-04-19,F-350,Manzana Fuji,Frutas,41,1.5,No
+2024-04-20,F-388,Manzana Fuji,Frutas,68,1.5,No
+2024-04-20,A-352,Pan de Molde,Abarrotes,47,3.0,No
+2024-04-21,V-085,Zanahoria (kg),Verduras,188,0.7,Si
+2024-04-22,F-457,Manzana Fuji,Frutas,93,1.5,Si
+2024-04-23,F-348,Manzana Fuji,Frutas,49,1.5,No
+2024-04-24,F-357,Naranja (kg),Frutas,53,0.9,No
+2024-04-24,F-106,Naranja (kg),Frutas,35,0.9,No
+2024-04-25,C-276,Pollo (kg),Carnes,79,5.5,No
+2024-04-28,C-295,Carne Molida (kg),Carnes,59,6.2,No
+2024-04-28,V-190,Papa Amarilla (kg),Verduras,95,1.0,No
+2024-04-30,V-472,Papa Amarilla (kg),Verduras,74,1.0,No
+2024-05-01,A-441,Arroz (Bolsa 1kg),Abarrotes,131,2.1,Si
+2024-05-03,F-216,Naranja (kg),Frutas,40,0.9,No
+2024-05-05,F-454,Plátano de Seda,Frutas,79,1.2,No
+2024-05-07,V-200,Papa Amarilla (kg),Verduras,68,1.0,No
+2024-05-08,V-390,Papa Amarilla (kg),Verduras,58,1.0,No
+2024-05-08,A-042,Huevos (docena),Abarrotes,63,2.5,No
+2024-05-10,V-319,Tomate Italiano (kg),Verduras,85,1.3,No
+2024-05-14,A-289,Arroz (Bolsa 1kg),Abarrotes,91,2.1,No
+2024-05-15,A-048,Pan de Molde,Abarrotes,36,3.0,No
+2024-05-16,C-188,Carne Molida (kg),Carnes,40,6.2,No
+2024-05-17,F-104,Plátano de Seda,Frutas,93,1.2,Si
+2024-05-18,A-255,Pan de Molde,Abarrotes,112,3.0,Si
+2024-05-18,F-346,Plátano de Seda,Frutas,122,1.2,Si
+2024-05-19,V-019,Tomate Italiano (kg),Verduras,151,1.3,Si
+2024-05-23,F-160,Plátano de Seda,Frutas,65,1.2,No
+2024-05-24,C-329,Pollo (kg),Carnes,52,5.5,No
+2024-05-25,F-261,Naranja (kg),Frutas,50,0.9,No
+2024-05-25,A-012,Arroz (Bolsa 1kg),Abarrotes,124,2.1,No
+2024-05-26,A-054,Huevos (docena),Abarrotes,111,2.5,No
+2024-05-26,F-001,Naranja (kg),Frutas,51,0.9,No
+2024-05-27,V-287,Papa Amarilla (kg),Verduras,56,1.0,No
+2024-05-29,C-068,Pollo (kg),Carnes,66,5.5,No
+2024-05-30,V-024,Tomate Italiano (kg),Verduras,67,1.3,No
+2024-06-02,A-445,Huevos (docena),Abarrotes,133,2.5,No
+2024-06-03,V-056,Zanahoria (kg),Verduras,45,0.7,No
+2024-06-04,F-040,Plátano de Seda,Frutas,60,1.2,No
+2024-06-04,A-176,Arroz (Bolsa 1kg),Abarrotes,104,2.1,No
+2024-06-05,A-342,Pan de Molde,Abarrotes,37,3.0,No
+2024-06-09,A-246,Huevos (docena),Abarrotes,173,2.5,No
+2024-06-10,A-101,Pan de Molde,Abarrotes,38,3.0,No
+2024-06-12,A-306,Arroz (Bolsa 1kg),Abarrotes,66,2.1,No
+2024-06-13,V-344,Tomate Italiano (kg),Verduras,71,1.3,No
+2024-06-14,A-495,Pan de Molde,Abarrotes,34,3.0,No
+2024-06-15,A-302,Pan de Molde,Abarrotes,48,3.0,No
+2024-06-16,C-230,Carne Molida (kg),Carnes,77,6.2,No
+2024-06-17,A-489,Arroz (Bolsa 1kg),Abarrotes,95,2.1,No
+2024-06-17,V-477,Zanahoria (kg),Verduras,49,0.7,No
+2024-06-24,A-129,Huevos (docena),Abarrotes,140,2.5,Si
+2024-06-27,A-290,Huevos (docena),Abarrotes,65,2.5,No
+2024-06-27,A-381,Huevos (docena),Abarrotes,75,2.5,No
+2024-06-29,V-144,Papa Amarilla (kg),Verduras,102,1.0,No
+2024-07-03,V-140,Zanahoria (kg),Verduras,45,0.7,No
+2024-07-03,F-288,Manzana Fuji,Frutas,35,1.5,No
+2024-07-03,A-043,Aceite Vegetal (1L),Abarrotes,99,3.5,No
+2024-07-04,V-028,Zanahoria (kg),Verduras,57,0.7,No
+2024-07-05,C-241,Carne Molida (kg),Carnes,34,6.2,No
+2024-07-06,C-164,Pollo (kg),Carnes,76,5.5,No
+2024-07-06,V-286,Zanahoria (kg),Verduras,64,0.7,No
+2024-07-06,V-267,Lechuga Americana,Verduras,37,0.8,No
+2024-07-09,F-424,Naranja (kg),Frutas,43,0.9,No
+2024-07-09,V-181,Papa Amarilla (kg),Verduras,66,1.0,No
+2024-07-10,V-461,Lechuga Americana,Verduras,54,0.8,Si
+2024-07-11,A-115,Pan de Molde,Abarrotes,35,3.0,No
+2024-07-11,A-083,Arroz (Bolsa 1kg),Abarrotes,90,2.1,No
+2024-07-11,F-023,Manzana Fuji,Frutas,61,1.5,No
+2024-07-11,V-311,Papa Amarilla (kg),Verduras,69,1.0,No
+2024-07-13,C-455,Pollo (kg),Carnes,60,5.5,No
+2024-07-14,V-177,Lechuga Americana,Verduras,50,0.8,No
+2024-07-15,C-062,Pollo (kg),Carnes,112,5.5,Si
+2024-07-15,A-098,Huevos (docena),Abarrotes,80,2.5,No
+2024-07-15,A-481,Huevos (docena),Abarrotes,93,2.5,No
+2024-07-16,V-340,Lechuga Americana,Verduras,61,0.8,Si
+2024-07-16,V-373,Tomate Italiano (kg),Verduras,64,1.3,No
+2024-07-17,F-038,Naranja (kg),Frutas,37,0.9,No
+2024-07-17,V-374,Papa Amarilla (kg),Verduras,81,1.0,No
+2024-07-19,C-453,Carne Molida (kg),Carnes,38,6.2,No
+2024-07-19,V-009,Tomate Italiano (kg),Verduras,67,1.3,No
+2024-07-21,F-217,Naranja (kg),Frutas,52,0.9,No
+2024-07-21,A-207,Huevos (docena),Abarrotes,130,2.5,No
+2024-07-23,A-315,Huevos (docena),Abarrotes,141,2.5,Si
+2024-07-24,F-266,Plátano de Seda,Frutas,70,1.2,Si
+2024-07-24,A-293,Huevos (docena),Abarrotes,62,2.5,No
+2024-07-25,F-097,Plátano de Seda,Frutas,56,1.2,No
+2024-07-27,F-187,Plátano de Seda,Frutas,90,1.2,No
+2024-07-28,F-128,Plátano de Seda,Frutas,117,1.2,No
+2024-07-30,F-071,Plátano de Seda,Frutas,106,1.2,Si
+2024-08-02,F-253,Manzana Fuji,Frutas,52,1.5,No
+2024-08-02,A-124,Huevos (docena),Abarrotes,75,2.5,No
+2024-08-03,A-196,Arroz (Bolsa 1kg),Abarrotes,289,2.1,Si
+2024-08-04,C-155,Carne Molida (kg),Carnes,47,6.2,No
+2024-08-04,V-227,Zanahoria (kg),Verduras,76,0.7,No
+2024-08-05,V-443,Papa Amarilla (kg),Verduras,95,1.0,Si
+2024-08-06,A-419,Huevos (docena),Abarrotes,89,2.5,No
+2024-08-06,A-114,Arroz (Bolsa 1kg),Abarrotes,70,2.1,No
+2024-08-07,F-305,Plátano de Seda,Frutas,149,1.2,Si
+2024-08-08,F-239,Naranja (kg),Frutas,59,0.9,Si
+2024-08-08,F-404,Naranja (kg),Frutas,48,0.9,Si
+2024-08-09,C-310,Carne Molida (kg),Carnes,29,6.2,No
+2024-08-10,A-436,Arroz (Bolsa 1kg),Abarrotes,117,2.1,No
+2024-08-10,A-327,Pan de Molde,Abarrotes,44,3.0,No
+2024-08-11,F-003,Naranja (kg),Frutas,78,0.9,Si
+2024-08-11,A-091,Arroz (Bolsa 1kg),Abarrotes,270,2.1,Si
+2024-08-12,C-475,Carne Molida (kg),Carnes,69,6.2,Si
+2024-08-13,C-304,Carne Molida (kg),Carnes,64,6.2,Si
+2024-08-16,V-351,Zanahoria (kg),Verduras,39,0.7,No
+2024-08-16,A-100,Arroz (Bolsa 1kg),Abarrotes,69,2.1,No
+2024-08-16,A-099,Aceite Vegetal (1L),Abarrotes,83,3.5,No
+2024-08-17,A-485,Arroz (Bolsa 1kg),Abarrotes,93,2.1,No
+2024-08-19,F-057,Naranja (kg),Frutas,40,0.9,No
+2024-08-20,A-470,Aceite Vegetal (1L),Abarrotes,92,3.5,No
+2024-08-26,F-368,Plátano de Seda,Frutas,125,1.2,Si
+2024-08-26,F-254,Naranja (kg),Frutas,47,0.9,No
+2024-08-28,A-252,Huevos (docena),Abarrotes,90,2.5,No
+2024-08-29,V-066,Zanahoria (kg),Verduras,49,0.7,No
+2024-09-01,V-082,Papa Amarilla (kg),Verduras,104,1.0,No
+2024-09-06,V-282,Tomate Italiano (kg),Verduras,115,1.3,Si
+2024-09-09,V-125,Lechuga Americana,Verduras,37,0.8,No
+2024-09-11,V-120,Zanahoria (kg),Verduras,57,0.7,No
+2024-09-14,A-272,Aceite Vegetal (1L),Abarrotes,214,3.5,No
+2024-09-19,F-402,Plátano de Seda,Frutas,49,1.2,No
+2024-09-19,F-186,Naranja (kg),Frutas,42,0.9,No
+2024-09-20,V-332,Lechuga Americana,Verduras,30,0.8,No
+2024-09-24,V-465,Lechuga Americana,Verduras,14,0.8,No
+2024-09-24,V-041,Lechuga Americana,Verduras,25,0.8,No
+2024-09-26,F-331,Plátano de Seda,Frutas,57,1.2,No
+2024-09-29,V-206,Papa Amarilla (kg),Verduras,85,1.0,No
+2024-10-02,A-086,Arroz (Bolsa 1kg),Abarrotes,97,2.1,No
+2024-10-02,V-172,Tomate Italiano (kg),Verduras,78,1.3,No
+2024-10-04,V-409,Lechuga Americana,Verduras,35,0.8,No
+2024-10-04,V-499,Tomate Italiano (kg),Verduras,55,1.3,No
+2024-10-05,V-110,Zanahoria (kg),Verduras,63,0.7,No
+2024-10-06,V-025,Tomate Italiano (kg),Verduras,147,1.3,No
+2024-10-10,V-349,Zanahoria (kg),Verduras,38,0.7,No
+2024-10-11,C-103,Pollo (kg),Carnes,48,5.5,No
+2024-10-12,F-168,Naranja (kg),Frutas,51,0.9,No
+2024-10-13,V-356,Lechuga Americana,Verduras,110,0.8,Si
+2024-10-15,V-117,Lechuga Americana,Verduras,26,0.8,No
+2024-10-16,F-431,Manzana Fuji,Frutas,46,1.5,No
+2024-10-17,V-075,Zanahoria (kg),Verduras,43,0.7,No
+2024-10-17,V-163,Lechuga Americana,Verduras,29,0.8,No
+2024-10-17,A-105,Arroz (Bolsa 1kg),Abarrotes,75,2.1,No
+2024-10-18,C-378,Pollo (kg),Carnes,53,5.5,No
+2024-10-19,A-152,Huevos (docena),Abarrotes,99,2.5,No
+2024-10-21,V-355,Tomate Italiano (kg),Verduras,82,1.3,No
+2024-10-22,C-134,Pollo (kg),Carnes,63,5.5,No
+2024-10-22,F-167,Naranja (kg),Frutas,33,0.9,No
+2024-10-23,F-271,Manzana Fuji,Frutas,64,1.5,No
+2024-10-24,C-493,Carne Molida (kg),Carnes,34,6.2,No
+2024-10-24,A-153,Aceite Vegetal (1L),Abarrotes,152,3.5,Si
+2024-10-25,F-281,Naranja (kg),Frutas,46,0.9,No
+2024-10-25,A-061,Arroz (Bolsa 1kg),Abarrotes,67,2.1,No
+2024-10-26,C-005,Carne Molida (kg),Carnes,65,6.2,No
+2024-10-28,V-031,Lechuga Americana,Verduras,63,0.8,Si
+2024-10-29,A-229,Aceite Vegetal (1L),Abarrotes,75,3.5,No
+2024-10-30,V-398,Papa Amarilla (kg),Verduras,125,1.0,Si
+2024-11-01,F-358,Manzana Fuji,Frutas,48,1.5,No
+2024-11-01,A-210,Pan de Molde,Abarrotes,30,3.0,No
+2024-11-04,F-070,Manzana Fuji,Frutas,57,1.5,No
+2024-11-07,A-051,Arroz (Bolsa 1kg),Abarrotes,73,2.1,No
+2024-11-07,A-058,Arroz (Bolsa 1kg),Abarrotes,91,2.1,Si
+2024-11-08,F-010,Plátano de Seda,Frutas,72,1.2,No
+2024-11-12,F-365,Naranja (kg),Frutas,35,0.9,No
+2024-11-13,A-161,Aceite Vegetal (1L),Abarrotes,83,3.5,No
+2024-11-15,C-238,Carne Molida (kg),Carnes,34,6.2,No
+2024-11-15,C-179,Pollo (kg),Carnes,72,5.5,Si
+2024-11-16,A-063,Aceite Vegetal (1L),Abarrotes,121,3.5,No
+2024-11-18,A-059,Pan de Molde,Abarrotes,31,3.0,No
+2024-11-18,V-089,Papa Amarilla (kg),Verduras,68,1.0,No
+2024-11-18,A-078,Pan de Molde,Abarrotes,35,3.0,No
+2024-11-19,F-180,Naranja (kg),Frutas,35,0.9,No
+2024-11-21,C-263,Pollo (kg),Carnes,99,5.5,Si
+2024-11-23,C-291,Pollo (kg),Carnes,95,5.5,No
+2024-11-23,V-433,Lechuga Americana,Verduras,40,0.8,No
+2024-11-23,A-364,Arroz (Bolsa 1kg),Abarrotes,237,2.1,Si
+2024-11-24,F-463,Manzana Fuji,Frutas,59,1.5,No
+2024-11-26,F-391,Naranja (kg),Frutas,34,0.9,No
+2024-11-27,V-466,Papa Amarilla (kg),Verduras,54,1.0,No
+2024-11-30,A-209,Aceite Vegetal (1L),Abarrotes,124,3.5,No
+2024-11-30,A-037,Pan de Molde,Abarrotes,55,3.0,No
+2024-12-02,C-130,Pollo (kg),Carnes,59,5.5,No
+2024-12-03,A-447,Pan de Molde,Abarrotes,37,3.0,No
+2024-12-04,F-299,Naranja (kg),Frutas,34,0.9,No
+2024-12-04,A-362,Pan de Molde,Abarrotes,33,3.0,No
+2024-12-05,F-410,Manzana Fuji,Frutas,73,1.5,Si
+2024-12-05,A-136,Arroz (Bolsa 1kg),Abarrotes,171,2.1,Si
+2024-12-06,V-126,Zanahoria (kg),Verduras,86,0.7,Si
+2024-12-07,A-421,Aceite Vegetal (1L),Abarrotes,166,3.5,No
+2024-12-07,F-014,Plátano de Seda,Frutas,127,1.2,Si
+2024-12-09,A-371,Pan de Molde,Abarrotes,48,3.0,Si
+2024-12-10,V-347,Zanahoria (kg),Verduras,71,0.7,Si
+2024-12-10,C-333,Pollo (kg),Carnes,55,5.5,No
+2024-12-13,V-142,Tomate Italiano (kg),Verduras,84,1.3,No
+2024-12-16,V-223,Tomate Italiano (kg),Verduras,71,1.3,No
+2024-12-16,V-050,Tomate Italiano (kg),Verduras,64,1.3,No
+2024-12-18,A-250,Arroz (Bolsa 1kg),Abarrotes,88,2.1,No
+2024-12-18,C-016,Carne Molida (kg),Carnes,38,6.2,No
+2024-12-19,C-004,Carne Molida (kg),Carnes,34,6.2,No
+2024-12-21,F-361,Plátano de Seda,Frutas,196,1.2,Si
+2024-12-21,C-273,Pollo (kg),Carnes,96,5.5,Si
+2024-12-27,A-219,Pan de Molde,Abarrotes,29,3.0,No
+2024-12-29,C-022,Pollo (kg),Carnes,108,5.5,No
+2024-12-31,A-285,Arroz (Bolsa 1kg),Abarrotes,68,2.1,No
+2025-01-01,A-334,Pan de Molde,Abarrotes,50,3.0,No
+2025-01-01,A-212,Pan de Molde,Abarrotes,41,3.0,No
+2025-01-01,V-370,Tomate Italiano (kg),Verduras,79,1.3,No
+2025-01-05,A-298,Pan de Molde,Abarrotes,89,3.0,Si
+2025-01-08,A-294,Pan de Molde,Abarrotes,32,3.0,No
+2025-01-09,V-145,Lechuga Americana,Verduras,27,0.8,No
+2025-01-09,V-017,Lechuga Americana,Verduras,36,0.8,Si
+2025-01-11,C-133,Carne Molida (kg),Carnes,78,6.2,Si
+2025-01-12,C-094,Carne Molida (kg),Carnes,68,6.2,No
+2025-01-13,V-074,Papa Amarilla (kg),Verduras,82,1.0,No
+2025-01-13,F-121,Naranja (kg),Frutas,47,0.9,No
+2025-01-17,F-036,Plátano de Seda,Frutas,43,1.2,No
+2025-01-17,V-434,Lechuga Americana,Verduras,32,0.8,No
+2025-01-19,F-393,Naranja (kg),Frutas,61,0.9,No
+2025-01-19,V-235,Tomate Italiano (kg),Verduras,111,1.3,No
+2025-01-22,F-497,Manzana Fuji,Frutas,62,1.5,No
+2025-01-23,C-318,Pollo (kg),Carnes,67,5.5,No
+2025-01-24,V-234,Papa Amarilla (kg),Verduras,66,1.0,No
+2025-01-24,V-192,Tomate Italiano (kg),Verduras,73,1.3,No
+2025-01-25,V-052,Lechuga Americana,Verduras,38,0.8,No
+2025-01-25,V-473,Lechuga Americana,Verduras,49,0.8,No
+2025-01-30,V-268,Papa Amarilla (kg),Verduras,60,1.0,No
+2025-01-31,F-397,Manzana Fuji,Frutas,64,1.5,No
+2025-02-01,A-109,Arroz (Bolsa 1kg),Abarrotes,85,2.1,No
+2025-02-03,A-233,Aceite Vegetal (1L),Abarrotes,98,3.5,No
+2025-02-04,F-314,Plátano de Seda,Frutas,71,1.2,No
+2025-02-04,C-194,Pollo (kg),Carnes,58,5.5,No
+2025-02-07,V-204,Tomate Italiano (kg),Verduras,73,1.3,No
+2025-02-08,F-008,Naranja (kg),Frutas,46,0.9,No
+2025-02-09,A-088,Huevos (docena),Abarrotes,106,2.5,No
+2025-02-12,V-214,Zanahoria (kg),Verduras,36,0.7,No
+2025-02-12,A-341,Pan de Molde,Abarrotes,30,3.0,No
+2025-02-14,C-429,Carne Molida (kg),Carnes,34,6.2,No
+2025-02-15,A-322,Arroz (Bolsa 1kg),Abarrotes,151,2.1,No
+2025-02-15,F-135,Manzana Fuji,Frutas,61,1.5,No
+2025-02-16,V-039,Tomate Italiano (kg),Verduras,106,1.3,No
+2025-02-18,A-148,Pan de Molde,Abarrotes,80,3.0,Si
+2025-02-21,A-312,Huevos (docena),Abarrotes,141,2.5,Si
+2025-02-25,V-139,Lechuga Americana,Verduras,50,0.8,Si
+2025-02-28,C-237,Carne Molida (kg),Carnes,45,6.2,No
+2025-03-02,V-300,Papa Amarilla (kg),Verduras,83,1.0,No
+2025-03-02,A-435,Huevos (docena),Abarrotes,126,2.5,No
+2025-03-03,C-484,Pollo (kg),Carnes,47,5.5,No
+2025-03-04,C-222,Carne Molida (kg),Carnes,40,6.2,No
+2025-03-04,V-107,Lechuga Americana,Verduras,26,0.8,No
+2025-03-05,V-118,Lechuga Americana,Verduras,59,0.8,Si
+2025-03-07,F-166,Manzana Fuji,Frutas,33,1.5,No
+2025-03-08,V-280,Papa Amarilla (kg),Verduras,88,1.0,No
+2025-03-12,V-432,Tomate Italiano (kg),Verduras,57,1.3,No
+2025-03-13,V-415,Lechuga Americana,Verduras,28,0.8,No
+2025-03-19,V-158,Lechuga Americana,Verduras,31,0.8,No
+2025-03-19,A-015,Aceite Vegetal (1L),Abarrotes,200,3.5,Si
+2025-03-23,V-320,Lechuga Americana,Verduras,75,0.8,Si
+2025-03-26,A-046,Pan de Molde,Abarrotes,37,3.0,No
+2025-03-26,V-205,Zanahoria (kg),Verduras,43,0.7,No
+2025-03-26,A-079,Huevos (docena),Abarrotes,65,2.5,No
+2025-03-27,F-108,Manzana Fuji,Frutas,56,1.5,No
+2025-03-27,A-208,Huevos (docena),Abarrotes,60,2.5,No
+2025-03-28,F-345,Naranja (kg),Frutas,57,0.9,Si
+2025-03-28,C-162,Carne Molida (kg),Carnes,73,6.2,Si
+2025-03-30,A-375,Aceite Vegetal (1L),Abarrotes,179,3.5,No
+2025-03-31,A-448,Arroz (Bolsa 1kg),Abarrotes,61,2.1,No
+2025-03-31,C-170,Pollo (kg),Carnes,53,5.5,No
+2025-04-03,F-033,Manzana Fuji,Frutas,46,1.5,No
+2025-04-04,A-400,Aceite Vegetal (1L),Abarrotes,94,3.5,No
+2025-04-11,F-201,Manzana Fuji,Frutas,46,1.5,No
+2025-04-13,A-034,Arroz (Bolsa 1kg),Abarrotes,116,2.1,No
+2025-04-13,A-018,Arroz (Bolsa 1kg),Abarrotes,100,2.1,No
+2025-04-21,V-045,Tomate Italiano (kg),Verduras,170,1.3,Si
+2025-04-21,A-490,Pan de Molde,Abarrotes,47,3.0,No
+2025-04-23,F-494,Plátano de Seda,Frutas,71,1.2,No
+2025-04-24,F-442,Naranja (kg),Frutas,54,0.9,No
+2025-04-25,F-326,Manzana Fuji,Frutas,63,1.5,No
+2025-04-26,A-408,Huevos (docena),Abarrotes,88,2.5,No
+2025-04-26,F-260,Manzana Fuji,Frutas,89,1.5,No
+2025-04-29,F-013,Plátano de Seda,Frutas,58,1.2,No
+2025-04-29,V-073,Tomate Italiano (kg),Verduras,71,1.3,No
+2025-05-01,V-264,Zanahoria (kg),Verduras,44,0.7,No
+2025-05-01,C-149,Carne Molida (kg),Carnes,92,6.2,Si
+2025-05-02,A-002,Pan de Molde,Abarrotes,27,3.0,No
+2025-05-06,V-449,Papa Amarilla (kg),Verduras,150,1.0,Si
+2025-05-06,V-178,Tomate Italiano (kg),Verduras,92,1.3,Si
+2025-05-06,A-486,Pan de Molde,Abarrotes,46,3.0,No
+2025-05-07,C-183,Pollo (kg),Carnes,61,5.5,No
+2025-05-08,V-006,Lechuga Americana,Verduras,21,0.8,No
+2025-05-08,V-296,Lechuga Americana,Verduras,30,0.8,No
+2025-05-08,F-064,Naranja (kg),Frutas,52,0.9,No
+2025-05-09,A-430,Aceite Vegetal (1L),Abarrotes,95,3.5,No
+2025-05-09,A-339,Aceite Vegetal (1L),Abarrotes,87,3.5,No
+2025-05-10,A-353,Pan de Molde,Abarrotes,32,3.0,No
+2025-05-10,A-407,Huevos (docena),Abarrotes,89,2.5,No
+2025-05-11,C-487,Carne Molida (kg),Carnes,50,6.2,No
+2025-05-13,A-232,Huevos (docena),Abarrotes,52,2.5,No
+2025-05-14,A-354,Pan de Molde,Abarrotes,28,3.0,No
+2025-05-15,A-464,Aceite Vegetal (1L),Abarrotes,180,3.5,Si
+2025-05-16,C-420,Carne Molida (kg),Carnes,39,6.2,No
+2025-05-16,F-401,Manzana Fuji,Frutas,72,1.5,Si
+2025-05-16,A-184,Aceite Vegetal (1L),Abarrotes,97,3.5,No
+2025-05-22,V-283,Zanahoria (kg),Verduras,57,0.7,No
+2025-05-24,A-143,Huevos (docena),Abarrotes,152,2.5,No
+2025-05-25,V-405,Lechuga Americana,Verduras,51,0.8,No
+2025-05-26,C-456,Carne Molida (kg),Carnes,63,6.2,Si
+2025-05-29,V-451,Tomate Italiano (kg),Verduras,66,1.3,No
+2025-05-30,C-450,Carne Molida (kg),Carnes,40,6.2,No
+2025-05-31,C-182,Carne Molida (kg),Carnes,74,6.2,Si
+2025-06-01,F-474,Naranja (kg),Frutas,39,0.9,No
+2025-06-01,V-060,Zanahoria (kg),Verduras,49,0.7,No
+2025-06-03,C-460,Carne Molida (kg),Carnes,31,6.2,No
+2025-06-04,A-478,Aceite Vegetal (1L),Abarrotes,85,3.5,No
+2025-06-05,V-242,Tomate Italiano (kg),Verduras,169,1.3,Si
+2025-06-05,F-211,Plátano de Seda,Frutas,68,1.2,No
+2025-06-07,A-131,Huevos (docena),Abarrotes,83,2.5,No
+2025-06-11,A-301,Aceite Vegetal (1L),Abarrotes,84,3.5,No
+2025-06-13,V-274,Tomate Italiano (kg),Verduras,70,1.3,No
+2025-06-15,F-471,Manzana Fuji,Frutas,111,1.5,Si
+2025-06-16,V-231,Tomate Italiano (kg),Verduras,130,1.3,Si
+2025-06-17,A-444,Arroz (Bolsa 1kg),Abarrotes,95,2.1,No
+2025-06-17,V-338,Zanahoria (kg),Verduras,45,0.7,No
+2025-06-18,C-147,Pollo (kg),Carnes,65,5.5,No
+2025-06-20,A-488,Aceite Vegetal (1L),Abarrotes,82,3.5,No
+2025-06-20,A-195,Pan de Molde,Abarrotes,38,3.0,No
+2025-06-21,C-323,Carne Molida (kg),Carnes,63,6.2,No
+2025-06-23,C-277,Pollo (kg),Carnes,54,5.5,No
+2025-07-03,A-248,Aceite Vegetal (1L),Abarrotes,83,3.5,No
+2025-07-03,V-297,Tomate Italiano (kg),Verduras,54,1.3,No
+2025-07-05,A-372,Aceite Vegetal (1L),Abarrotes,116,3.5,No
+2025-07-05,V-452,Papa Amarilla (kg),Verduras,121,1.0,No
+2025-07-06,A-343,Huevos (docena),Abarrotes,185,2.5,Si
+2025-07-08,V-116,Tomate Italiano (kg),Verduras,64,1.3,No
+2025-07-09,V-076,Tomate Italiano (kg),Verduras,89,1.3,Si
+2025-07-10,V-245,Lechuga Americana,Verduras,26,0.8,No
+2025-07-12,F-395,Naranja (kg),Frutas,56,0.9,No
+2025-07-13,V-049,Lechuga Americana,Verduras,88,0.8,Si
+2025-07-13,V-307,Tomate Italiano (kg),Verduras,123,1.3,No
+2025-07-16,V-386,Tomate Italiano (kg),Verduras,137,1.3,Si
+2025-07-16,V-113,Papa Amarilla (kg),Verduras,69,1.0,No
+2025-07-16,V-157,Papa Amarilla (kg),Verduras,79,1.0,No
+2025-07-21,A-000,Huevos (docena),Abarrotes,73,2.5,No
+2025-07-21,V-244,Tomate Italiano (kg),Verduras,66,1.3,No
+2025-07-21,V-359,Zanahoria (kg),Verduras,88,0.7,Si
+2025-07-25,V-007,Papa Amarilla (kg),Verduras,73,1.0,No
+2025-07-27,C-122,Carne Molida (kg),Carnes,57,6.2,No
+2025-07-27,A-198,Pan de Molde,Abarrotes,66,3.0,No
+2025-07-28,C-383,Pollo (kg),Carnes,81,5.5,Si
+2025-07-30,V-249,Zanahoria (kg),Verduras,40,0.7,No
+2025-07-31,F-440,Plátano de Seda,Frutas,136,1.2,Si
+2025-08-01,F-411,Manzana Fuji,Frutas,58,1.5,No
+2025-08-03,V-150,Papa Amarilla (kg),Verduras,69,1.0,No
+2025-08-04,A-403,Huevos (docena),Abarrotes,118,2.5,Si
+2025-08-06,C-159,Carne Molida (kg),Carnes,74,6.2,Si
+2025-08-07,A-080,Pan de Molde,Abarrotes,34,3.0,No
+2025-08-10,A-426,Huevos (docena),Abarrotes,116,2.5,No
+2025-08-12,V-081,Papa Amarilla (kg),Verduras,56,1.0,No
+2025-08-13,F-309,Naranja (kg),Frutas,39,0.9,No
+2025-08-13,A-385,Pan de Molde,Abarrotes,41,3.0,No
+2025-08-19,C-336,Carne Molida (kg),Carnes,55,6.2,Si
+2025-08-20,F-193,Naranja (kg),Frutas,50,0.9,No
+2025-08-21,C-363,Carne Molida (kg),Carnes,89,6.2,Si
+2025-08-22,A-284,Arroz (Bolsa 1kg),Abarrotes,84,2.1,No
+2025-08-23,V-387,Lechuga Americana,Verduras,51,0.8,No
+2025-08-24,C-251,Pollo (kg),Carnes,195,5.5,Si
+2025-08-24,V-321,Lechuga Americana,Verduras,43,0.8,No
+2025-08-26,C-053,Pollo (kg),Carnes,59,5.5,No
+2025-08-27,F-324,Naranja (kg),Frutas,42,0.9,No
+2025-08-28,A-072,Huevos (docena),Abarrotes,136,2.5,Si
+2025-08-31,A-257,Arroz (Bolsa 1kg),Abarrotes,100,2.1,No
+2025-09-01,F-491,Naranja (kg),Frutas,36,0.9,No
+2025-09-01,F-165,Plátano de Seda,Frutas,121,1.2,Si
+2025-09-04,A-020,Pan de Molde,Abarrotes,63,3.0,Si
+2025-09-05,A-462,Pan de Molde,Abarrotes,31,3.0,No
+2025-09-06,A-262,Pan de Molde,Abarrotes,52,3.0,No
+2025-09-09,V-092,Lechuga Americana,Verduras,44,0.8,Si
+2025-09-12,A-087,Aceite Vegetal (1L),Abarrotes,111,3.5,No
+2025-09-13,C-439,Pollo (kg),Carnes,65,5.5,No
+2025-09-13,A-259,Pan de Molde,Abarrotes,93,3.0,Si
+2025-09-15,A-221,Arroz (Bolsa 1kg),Abarrotes,142,2.1,Si
+2025-09-17,F-384,Manzana Fuji,Frutas,50,1.5,No
+2025-09-17,F-427,Plátano de Seda,Frutas,51,1.2,No
+2025-09-18,A-469,Aceite Vegetal (1L),Abarrotes,90,3.5,No
+2025-09-19,C-437,Pollo (kg),Carnes,49,5.5,No
+2025-09-21,F-392,Plátano de Seda,Frutas,65,1.2,No
+2025-09-21,F-438,Manzana Fuji,Frutas,70,1.5,No
+2025-09-22,V-032,Papa Amarilla (kg),Verduras,82,1.0,Si
+2025-09-25,F-265,Naranja (kg),Frutas,32,0.9,No
+2025-09-26,A-476,Aceite Vegetal (1L),Abarrotes,79,3.5,No
+2025-09-26,C-389,Carne Molida (kg),Carnes,46,6.2,No
+2025-09-27,A-077,Pan de Molde,Abarrotes,55,3.0,No
+2025-10-01,V-228,Lechuga Americana,Verduras,28,0.8,No
+2025-10-03,A-325,Huevos (docena),Abarrotes,100,2.5,Si
+2025-10-03,A-292,Aceite Vegetal (1L),Abarrotes,104,3.5,No
+2025-10-05,A-173,Pan de Molde,Abarrotes,37,3.0,No
+2025-10-06,A-335,Arroz (Bolsa 1kg),Abarrotes,79,2.1,No
+2025-10-07,F-428,Manzana Fuji,Frutas,49,1.5,No
+2025-10-08,A-035,Arroz (Bolsa 1kg),Abarrotes,66,2.1,No
+2025-10-09,V-226,Tomate Italiano (kg),Verduras,63,1.3,No
+2025-10-10,C-317,Carne Molida (kg),Carnes,27,6.2,No
+2025-10-11,F-096,Manzana Fuji,Frutas,97,1.5,No
+2025-10-11,V-146,Papa Amarilla (kg),Verduras,63,1.0,No
+2025-10-12,A-213,Huevos (docena),Abarrotes,77,2.5,No
+2025-10-13,V-316,Tomate Italiano (kg),Verduras,67,1.3,No
+2025-10-15,F-203,Plátano de Seda,Frutas,73,1.2,No
+2025-10-16,V-030,Papa Amarilla (kg),Verduras,89,1.0,No
+2025-10-17,A-377,Arroz (Bolsa 1kg),Abarrotes,123,2.1,Si
+2025-10-18,A-185,Arroz (Bolsa 1kg),Abarrotes,95,2.1,No
+2025-10-18,V-090,Lechuga Americana,Verduras,34,0.8,No
+2025-10-18,F-069,Plátano de Seda,Frutas,81,1.2,No
+2025-10-19,V-416,Papa Amarilla (kg),Verduras,81,1.0,No
+2025-10-19,A-269,Aceite Vegetal (1L),Abarrotes,152,3.5,No
+2025-10-21,C-399,Carne Molida (kg),Carnes,79,6.2,Si
+2025-10-21,V-379,Lechuga Americana,Verduras,15,0.8,No
+2025-10-21,F-243,Manzana Fuji,Frutas,64,1.5,No
+2025-10-23,V-483,Lechuga Americana,Verduras,23,0.8,No
+2025-10-25,V-169,Lechuga Americana,Verduras,27,0.8,No
+2025-10-25,A-141,Aceite Vegetal (1L),Abarrotes,109,3.5,No
+2025-10-30,A-458,Pan de Molde,Abarrotes,22,3.0,No
+2025-10-30,C-367,Carne Molida (kg),Carnes,64,6.2,Si
+2025-10-30,C-123,Pollo (kg),Carnes,57,5.5,No
+2025-10-30,C-137,Pollo (kg),Carnes,48,5.5,No
+2025-11-01,F-138,Naranja (kg),Frutas,43,0.9,No
+2025-11-04,V-119,Tomate Italiano (kg),Verduras,58,1.3,No
+2025-11-11,C-029,Pollo (kg),Carnes,44,5.5,No
+2025-11-11,C-256,Carne Molida (kg),Carnes,50,6.2,No
