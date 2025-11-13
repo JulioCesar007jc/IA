@@ -5,28 +5,51 @@ from datetime import datetime, timedelta
 
 print("Iniciando la generación de datos... esto puede tardar un momento.")
 
-# --- Configuración de Productos ---
-# (Nombre, Categoría, Precio Base, Cantidad Base promedio)
+# --- Configuración de Productos (¡Catálogo Extendido!) ---
 products_list = [
+    # Frutas
     ("Manzana Fuji", "Frutas", 1.50, 50),
     ("Plátano de Seda", "Frutas", 1.20, 60),
     ("Naranja (kg)", "Frutas", 0.90, 40),
+    ("Uva Red Globe (kg)", "Frutas", 2.20, 35),
+    ("Piña Golden", "Frutas", 2.50, 20),
+    ("Mango Kent (kg)", "Frutas", 1.80, 45),
+    ("Pera de Agua (kg)", "Frutas", 1.60, 40),
+    
+    # Verduras
     ("Lechuga Americana", "Verduras", 0.80, 30),
     ("Tomate Italiano (kg)", "Verduras", 1.30, 70),
     ("Papa Amarilla (kg)", "Verduras", 1.00, 65),
     ("Zanahoria (kg)", "Verduras", 0.70, 45),
+    ("Brócoli (unidad)", "Verduras", 1.10, 25),
+    ("Pimiento Rojo (kg)", "Verduras", 1.90, 30),
+    ("Cebolla Roja (kg)", "Verduras", 0.80, 55),
+    ("Zapallo Macre (kg)", "Verduras", 0.90, 20),
+
+    # Abarrotes
     ("Arroz (Bolsa 1kg)", "Abarrotes", 2.10, 80),
     ("Aceite Vegetal (1L)", "Abarrotes", 3.50, 90),
     ("Huevos (docena)", "Abarrotes", 2.50, 75),
     ("Pan de Molde", "Abarrotes", 3.00, 35),
+    ("Atún en Lata", "Abarrotes", 1.40, 100),
+    ("Leche Evaporada (lata)", "Abarrotes", 1.20, 110),
+    ("Azúcar Rubia (kg)", "Abarrotes", 1.60, 70),
+    ("Fideos (paquete)", "Abarrotes", 1.30, 60),
+
+    # Carnes y Lácteos (Nuevas Categorías)
     ("Pollo (kg)", "Carnes", 5.50, 55),
-    ("Carne Molida (kg)", "Carnes", 6.20, 40)
+    ("Carne Molida (kg)", "Carnes", 6.20, 40),
+    ("Filete de Pechuga (kg)", "Carnes", 7.00, 50),
+    ("Queso Fresco (kg)", "Lácteos", 4.50, 30),
+    ("Yogurt (litro)", "Lácteos", 3.80, 40),
+    ("Mantequilla (barra)", "Lácteos", 2.00, 25),
+    ("Leche Fresca (caja)", "Lácteos", 3.90, 50)
 ]
 
 # --- Configuración de Fechas ---
 start_date = datetime(2024, 1, 1)
 end_date = datetime(2025, 11, 12) # Hasta la fecha actual
-n_rows = 500
+n_rows = 500 # Mantenemos 500 filas, pero con más variedad
 date_range_days = (end_date - start_date).days
 
 # --- Generación de Datos ---
@@ -82,9 +105,10 @@ df = df.sort_values(by='Fecha')
 df['Fecha'] = df['Fecha'].dt.strftime('%Y-%m-%d')
 
 # --- Guardar Archivo ---
-nuevo_nombre_archivo = 'Ventas_market_delivery_500.csv'
+# Usaremos el mismo nombre de archivo para sobreescribir
+nuevo_nombre_archivo = 'Ventas_market_delivery.csv'
 df.to_csv(nuevo_nombre_archivo, index=False)
 
 print("¡Éxito!")
-print(f"Se ha creado un nuevo archivo '{nuevo_nombre_archivo}' con {len(df)} filas.")
-print("Por favor, renombra este archivo al nombre que usa tu script o actualiza tu script.")
+print(f"Se ha sobreescrito el archivo '{nuevo_nombre_archivo}' con {len(df)} filas y un catálogo de productos extendido.")
+print("¡El siguiente paso es RE-ENTRENAR EL MODELO!")
