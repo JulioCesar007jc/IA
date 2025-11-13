@@ -49,33 +49,51 @@ st.header('Market Delivery')
 # --- BARRA LATERAL (CONTROLES) ---
 # IMPORTANTE: Cambia "logo.png" por el nombre real de tu imagen de logo
 try:
-    st.sidebar.image("Logo.png", width=150)
+    st.sidebar.image("Logo.png", width=150) # Asegúrate que el nombre (May/min) sea correcto
 except FileNotFoundError:
-    st.sidebar.error("No se encontró el logo. Asegúrate de que 'logo.png' esté en la carpeta.")
+    st.sidebar.error("No se encontró el logo.")
 
 st.sidebar.header("Datos de Entrada")
 
-# --- Formularios de Entrada (AHORA EN LA BARRA LATERAL) ---
+# --- LÓGICA DE FILTRADO DEPENDIENTE ---
+# Estos controles están FUERA del formulario para que se actualicen dinámicamente
+
+fecha_pronostico = st.sidebar.date_input("Selecciona la fecha")
+
+# Listas de categorías
+if not df_historico.empty:
+    lista_categorias = sorted(df_historico['Categoria'].unique())
+else:
+    # Fallback si el CSV no se pudo cargar
+    lista_categorias = ['Frutas', 'Verduras', 'Abarrotes', 'Carnes']
+
+# 1. El usuario selecciona la categoría
+categoria_seleccionada = st.sidebar.selectbox("Selecciona la categoría", lista_categorias)
+
+# 2. Filtramos la lista de productos BASADA en la categoría
+if not df_historico.empty:
+    # Filtra el DataFrame por la categoría seleccionada
+    df_productos_filtrados = df_historico[df_historico['Categoria'] == categoria_seleccionada]
+    # Obtiene la lista de productos únicos de ese filtro
+    lista_productos = sorted(df_productos_filtrados['Nombre_Producto'].unique())
+    # Si la lista está vacía (posible error), usar un fallback
+    if not lista_productos:
+         lista_productos = sorted(df_historico['Nombre_Producto'].unique()) # Fallback a todos
+else:
+    # Fallback si el CSV no se pudo cargar
+    lista_productos = ['Manzana Fuji', 'Lechuga Americana', 'Arroz (Bolsa 1kg)'] # Lista genérica
+
+# 3. El usuario selecciona el producto de la lista YA filtrada
+producto_seleccionado = st.sidebar.selectbox("Selecciona el producto", lista_productos)
+
+promocion = st.sidebar.radio("¿Estará en promoción?", ("No", "Si"))
+# --- FIN DE LÓGICA DE FILTRADO ---
+
+
+# --- Formulario de Envío (SOLO EL BOTÓN) ---
+# El formulario solo contiene el botón para evitar que todo se recalcule
+# cada vez que se cambia un filtro.
 with st.sidebar.form(key="pronostico_form"):
-    
-    fecha_pronostico = st.date_input("Selecciona la fecha")
-    
-    # Listas de productos y categorías (idealmente desde el CSV)
-    if not df_historico.empty:
-        lista_productos = sorted(df_historico['Nombre_Producto'].unique())
-        lista_categorias = sorted(df_historico['Categoria'].unique())
-    else:
-        # Fallback si el CSV no se pudo cargar
-        lista_productos = [
-            'Manzana Fuji', 'Lechuga Americana', 'Arroz (Bolsa 1kg)', 
-            'Plátano de Seda', 'Tomate Italiano (kg)', 'Aceite Vegetal (1L)'
-        ]
-        lista_categorias = ['Frutas', 'Verduras', 'Abarrotes']
-
-    producto_seleccionado = st.selectbox("Selecciona el producto", lista_productos)
-    categoria_seleccionada = st.selectbox("Selecciona la categoría", lista_categorias)
-    promocion = st.radio("¿Estará en promoción?", ("No", "Si"))
-
     submit_button = st.form_submit_button(label="Realizar Pronóstico y Análisis")
 
 
