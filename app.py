@@ -49,7 +49,7 @@ st.header('Market Delivery')
 # --- BARRA LATERAL (CONTROLES) ---
 # IMPORTANTE: Cambia "logo.png" por el nombre real de tu imagen de logo
 try:
-    st.sidebar.image("logo.png", width=150)
+    st.sidebar.image("Logo.png", width=150)
 except FileNotFoundError:
     st.sidebar.error("No se encontró el logo. Asegúrate de que 'logo.png' esté en la carpeta.")
 
