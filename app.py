@@ -1,202 +1,137 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import joblib
-import os
-from datetime import datetime
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.cluster.hierarchy import dendrogram, linkage
+from sklearn.preprocessing import StandardScaler
 
-# --- Configuración de la Página ---
-st.set_page_config(
-    page_title="Dashboard de Pronóstico",
-    page_icon="📈",
-    layout="wide"  # Usamos un layout ancho para el dashboard
-)
+# --- CONFIGURACIÓN DE PÁGINA ---
+st.set_page_config(page_title="Market Delivery AI", layout="wide", page_icon="🚚")
 
-# --- Cargar el Modelo y las Columnas ---
-script_dir = os.path.dirname(os.path.abspath(__file__))
-modelo_path = os.path.join(script_dir, 'modelo_pronostico.pkl')
-columnas_path = os.path.join(script_dir, 'columnas_modelo.pkl')
-csv_path = os.path.join(script_dir, 'Ventas_market_delivery.csv') # Ruta al CSV
+# --- CARGAR MODELOS ---
+@st.cache_resource
+def cargar_modelos():
+    try:
+        return joblib.load('modelos_finales.pkl')
+    except:
+        st.error("⚠️ No se encontró 'modelos_finales.pkl'.")
+        return None
 
-try:
-    modelo = joblib.load(modelo_path)
-    columnas_modelo = joblib.load(columnas_path)
-except Exception as e:
-    st.error(f"Error fatal al cargar los archivos del modelo (.pkl): {e}")
-    st.error("Asegúrate de haber ejecutado 'entrenar_modelo.py' primero.")
-    st.stop()
+pack = cargar_modelos()
 
-# --- Cargar DATOS HISTÓRICOS (para gráficos y métricas) ---
-# Se cargan una sola vez al inicio
+# --- CARGAR DATOS (Para gráficos) ---
 @st.cache_data
-def cargar_datos_historicos():
+def cargar_datos():
     try:
-        df_hist = pd.read_csv(csv_path)
-        df_hist['Fecha'] = pd.to_datetime(df_hist['Fecha'])
-        return df_hist
-    except FileNotFoundError:
-        st.error(f"Error: No se encontró el archivo '{os.path.basename(csv_path)}'.")
-        return pd.DataFrame()
-    except Exception as e:
-        st.error(f"Error al leer el CSV: {e}")
-        return pd.DataFrame()
+        return pd.read_csv('dataset_market_final.csv')
+    except:
+        return None
 
-df_historico = cargar_datos_historicos()
+df = cargar_datos()
 
-# --- TÍTULO PRINCIPAL ---
-st.title('📈 Dashboard de Pronóstico de Demanda')
-st.header('Market Delivery')
+# --- MENÚ LATERAL ---
+st.sidebar.image("https://cdn-icons-png.flaticon.com/512/2830/2830305.png", width=100)
+st.sidebar.title("Sistema Inteligente")
+opcion = st.sidebar.radio("Selecciona un Módulo:", 
+    ["1. Predicción Demanda (Lineal)", 
+     "2. Alerta Retrasos (Logística)", 
+     "3. Segmentación Clientes (K-Means)",
+     "4. Análisis Jerárquico (Cluster)"])
 
-# --- BARRA LATERAL (CONTROLES) ---
-# IMPORTANTE: Cambia "logo.png" por el nombre real de tu imagen de logo
-try:
-    st.sidebar.image("Logo.png", width=150) # Asegúrate que el nombre (May/min) sea correcto
-except FileNotFoundError:
-    st.sidebar.error("No se encontró el logo.")
+st.sidebar.markdown("---")
+st.sidebar.info("Proyecto Final - Julio Aliaga")
 
-st.sidebar.header("Datos de Entrada")
+# --- VISTAS PRINCIPALES ---
 
-# --- LÓGICA DE FILTRADO DEPENDIENTE ---
-# Estos controles están FUERA del formulario para que se actualicen dinámicamente
-
-fecha_pronostico = st.sidebar.date_input("Selecciona la fecha")
-
-# Listas de categorías
-if not df_historico.empty:
-    lista_categorias = sorted(df_historico['Categoria'].unique())
-else:
-    # Fallback si el CSV no se pudo cargar
-    lista_categorias = ['Frutas', 'Verduras', 'Abarrotes', 'Carnes']
-
-# 1. El usuario selecciona la categoría
-categoria_seleccionada = st.sidebar.selectbox("Selecciona la categoría", lista_categorias)
-
-# 2. Filtramos la lista de productos BASADA en la categoría
-if not df_historico.empty:
-    # Filtra el DataFrame por la categoría seleccionada
-    df_productos_filtrados = df_historico[df_historico['Categoria'] == categoria_seleccionada]
-    # Obtiene la lista de productos únicos de ese filtro
-    lista_productos = sorted(df_productos_filtrados['Nombre_Producto'].unique())
-    # Si la lista está vacía (posible error), usar un fallback
-    if not lista_productos:
-         lista_productos = sorted(df_historico['Nombre_Producto'].unique()) # Fallback a todos
-else:
-    # Fallback si el CSV no se pudo cargar
-    lista_productos = ['Manzana Fuji', 'Lechuga Americana', 'Arroz (Bolsa 1kg)'] # Lista genérica
-
-# 3. El usuario selecciona el producto de la lista YA filtrada
-producto_seleccionado = st.sidebar.selectbox("Selecciona el producto", lista_productos)
-
-promocion = st.sidebar.radio("¿Estará en promoción?", ("No", "Si"))
-# --- FIN DE LÓGICA DE FILTRADO ---
-
-
-# --- Formulario de Envío (SOLO EL BOTÓN) ---
-# El formulario solo contiene el botón para evitar que todo se recalcule
-# cada vez que se cambia un filtro.
-with st.sidebar.form(key="pronostico_form"):
-    submit_button = st.form_submit_button(label="Realizar Pronóstico y Análisis")
-
-
-# --- ZONA DE RESULTADOS (Página Principal) ---
-
-if not submit_button:
-    st.info("Por favor, ingresa los datos en la barra lateral y presiona 'Realizar Pronóstico y Análisis'.")
-
-# --- Lógica de Predicción y Análisis (cuando se presiona el botón) ---
-if submit_button:
+if pack and df is not None:
     
-    # --- 1. LÓGICA DE PREDICCIÓN (Modelo) ---
-    try:
-        # 1.1. Preparar datos para el modelo
-        dia_semana = fecha_pronostico.weekday()
-        mes = fecha_pronostico.month
-        dia_mes = fecha_pronostico.day
-        es_fin_de_semana = 1 if dia_semana >= 5 else 0
-
-        datos_entrada = pd.DataFrame(columns=columnas_modelo)
-        datos_entrada.loc[0] = 0 
-
-        datos_entrada['dia_semana'] = dia_semana
-        datos_entrada['mes'] = mes
-        datos_entrada['dia_mes'] = dia_mes
-        datos_entrada['es_fin_de_semana'] = es_fin_de_semana
-        datos_entrada['Promocion'] = 1 if promocion == "Si" else 0
+    # === VISTA 1: REGRESIÓN LINEAL ===
+    if opcion == "1. Predicción Demanda (Lineal)":
+        st.title("📈 Predicción de Demanda")
+        st.markdown("Estima cuántas unidades venderás según el precio que fijes.")
         
-        col_producto = f"Nombre_Producto_{producto_seleccionado}"
-        if col_producto in datos_entrada.columns:
-            datos_entrada[col_producto] = 1
+        col1, col2 = st.columns(2)
+        with col1:
+            st.write("### Panel de Control")
+            precio = st.number_input("Precio del Producto (S/.)", 1.0, 100.0, 5.0)
+            if st.button("Calcular Predicción"):
+                modelo = pack['modelo_lineal']
+                pred = modelo.predict([[precio]])[0]
+                st.success(f"Se esperan vender: **{int(pred)} unidades**")
         
-        col_categoria = f"Categoria_{categoria_seleccionada}"
-        if col_categoria in datos_entrada.columns:
-            datos_entrada[col_categoria] = 1
+        with col2:
+            st.write("### Datos Históricos")
+            fig, ax = plt.subplots()
+            sns.scatterplot(x=df['Precio_Unitario'], y=df['Cantidad'], ax=ax, alpha=0.5)
+            plt.xlabel("Precio")
+            plt.ylabel("Cantidad Vendida")
+            st.pyplot(fig)
 
-        # 1.2. Realizar la predicción
-        prediccion = modelo.predict(datos_entrada[columnas_modelo])
-        unidades_pronosticadas = round(prediccion[0])
-        if unidades_pronosticadas < 0:
-            unidades_pronosticadas = 0
-
-    except Exception as e:
-        st.error(f"Ocurrió un error al procesar la predicción: {e}")
-        st.stop()
-
-
-    # --- 2. LÓGICA DE ANÁLISIS (Datos Históricos) ---
-    if not df_historico.empty:
-        hist_producto = df_historico[df_historico['Nombre_Producto'] == producto_seleccionado]
+    # === VISTA 2: REGRESIÓN LOGÍSTICA ===
+    elif opcion == "2. Alerta Retrasos (Logística)":
+        st.title("🚚 Detector de Retrasos")
+        st.markdown("Predice si un envío llegará tarde según el tráfico y distancia.")
         
-        if not hist_producto.empty:
-            venta_promedio = round(hist_producto['Cantidad_Vendida'].mean(), 1)
-            venta_maxima = hist_producto['Cantidad_Vendida'].max()
-            # Preparamos los datos para el gráfico (Fecha como índice)
-            hist_producto_chart = hist_producto.set_index('Fecha')['Cantidad_Vendida']
-        else:
-            venta_promedio = "N/A"
-            venta_maxima = "N/A"
-            hist_producto_chart = pd.DataFrame() # Gráfico vacío
-    else:
-        st.warning("No se pudieron cargar los datos históricos para el análisis.")
-        venta_promedio = "N/A"
-        venta_maxima = "N/A"
-        hist_producto_chart = pd.DataFrame()
-
-
-    # --- 3. MOSTRAR RESULTADOS (En Pestañas) ---
-    
-    st.subheader(f"Resultados para: {producto_seleccionado}")
-    
-    tab1, tab2 = st.tabs(["📊 Pronóstico", "📈 Análisis Histórico"])
-
-    # --- Pestaña 1: Pronóstico ---
-    with tab1:
-        st.header(f"Pronóstico para el {fecha_pronostico.strftime('%d/%m/%Y')}")
+        distancia = st.slider("Distancia (Km)", 0.5, 20.0, 5.0)
+        trafico = st.selectbox("Nivel de Tráfico", ["Bajo", "Medio", "Alto"])
         
-        # Métrica principal del pronóstico
-        st.metric(
-            label="Demanda Pronosticada",
-            value=f"{unidades_pronosticadas} unidades"
-        )
-        
-        st.info(f"""
-        **Detalles de la Predicción:**
-        * **Producto:** {producto_seleccionado}
-        * **Fecha:** {fecha_pronostico.strftime('%d/%m/%Y')}
-        * **En Promoción:** {promocion}
-        """)
-
-    # --- Pestaña 2: Análisis Histórico ---
-    with tab2:
-        st.header("Análisis de Ventas Históricas")
-        
-        if venta_promedio != "N/A":
-            col_metrica1, col_metrica2 = st.columns(2)
-            col_metrica1.metric("Venta Promedio Histórica", f"{venta_promedio} unidades")
-            col_metrica2.metric("Venta Máxima Histórica", f"{venta_maxima} unidades")
+        if st.button("Analizar Riesgo"):
+            le = pack['le_trafico']
+            modelo = pack['modelo_logistico']
             
-            st.divider() # Una línea divisoria
+            # Codificar tráfico y predecir
+            trafico_num = le.transform([trafico])[0]
+            probabilidad = modelo.predict_proba([[distancia, trafico_num]])[0][1]
             
-            st.subheader("Tendencia de Ventas Históricas")
-            st.line_chart(hist_producto_chart)
-            st.caption("Gráfico de ventas históricas del producto seleccionado.")
-        else:
-            st.warning(f"No se encontraron datos históricos para '{producto_seleccionado}' en el CSV.")
+            st.metric("Probabilidad de Retraso", f"{round(probabilidad*100, 1)}%")
+            
+            if probabilidad > 0.5:
+                st.error("🚨 ALERTA: Probable Retraso")
+            else:
+                st.success("✅ ENVÍO SEGURO: A tiempo")
+
+    # === VISTA 3: K-MEANS ===
+    elif opcion == "3. Segmentación Clientes (K-Means)":
+        st.title("👥 Agrupamiento de Clientes")
+        st.markdown("Clasifica nuevos clientes en grupos según su perfil.")
+        
+        c1, c2 = st.columns(2)
+        with c1:
+            edad = st.number_input("Edad del Cliente", 18, 90, 30)
+            gasto = st.number_input("Gasto Histórico (S/.)", 0.0, 500.0, 50.0)
+            
+            if st.button("Clasificar"):
+                scaler = pack['scaler_kmeans']
+                kmeans = pack['modelo_kmeans']
+                
+                datos = scaler.transform([[edad, gasto]])
+                grupo = kmeans.predict(datos)[0]
+                st.info(f"Cliente pertenece al **GRUPO {grupo}**")
+
+        with c2:
+            st.write("### Mapa de Clientes")
+            fig, ax = plt.subplots()
+            sns.scatterplot(data=df, x='Edad_Cliente', y='Gasto_Hist_Cliente', hue='ID_Cliente', legend=False, palette='viridis', ax=ax)
+            plt.xlabel("Edad")
+            plt.ylabel("Gasto")
+            st.pyplot(fig)
+
+    # === VISTA 4: JERÁRQUICO ===
+    elif opcion == "4. Análisis Jerárquico (Cluster)":
+        st.title("🌳 Dendrograma de Productos")
+        st.markdown("Visualización de cómo se agrupan los datos estructuralmente.")
+        
+        if st.button("Generar Gráfico Jerárquico"):
+            # Usamos una muestra pequeña para que el gráfico se entienda bien
+            muestra = df[['Edad_Cliente', 'Gasto_Hist_Cliente']].sample(40, random_state=42)
+            Z = linkage(muestra, 'ward')
+            
+            fig, ax = plt.subplots(figsize=(10, 5))
+            dendrogram(Z, ax=ax)
+            plt.title("Agrupación Jerárquica")
+            st.pyplot(fig)
+
+else:
+    st.warning("⚠️ Ejecuta 'entrenar_modelos_final.py' para generar los modelos primero.")
