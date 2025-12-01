@@ -2,38 +2,60 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
-import matplotlib.pyplot as plt
-import seaborn as sns
+import plotly.express as px
+import plotly.graph_objects as go
 from scipy.cluster.hierarchy import dendrogram, linkage
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 
-# --- 1. CONFIGURACIÓN PROFESIONAL DE PÁGINA ---
+# --- 1. CONFIGURACIÓN VISUAL (LAYOUT WIDE) ---
 st.set_page_config(
-    page_title="Market Delivery AI", 
-    layout="wide", 
+    page_title="Market Delivery AI",
+    layout="wide",
     page_icon="🚚",
     initial_sidebar_state="expanded"
 )
 
-# --- 2. ESTILOS CSS (MAQUILLAJE VISUAL) ---
+# --- 2. ESTILOS CSS PERSONALIZADOS (MODO DARK/PRO) ---
 st.markdown("""
     <style>
-    .stButton>button {
-        width: 100%;
-        background-color: #FF4B4B;
-        color: white;
-        font-weight: bold;
+    /* Fondo principal y fuentes */
+    .main {
+        background-color: #f8f9fa;
     }
-    .metric-card {
-        background-color: #f0f2f6;
+    h1 {
+        color: #1f2c56;
+        font-family: 'Helvetica', sans-serif;
+    }
+    h3 {
+        color: #FF4B4B;
+    }
+    /* Tarjetas de métricas */
+    div[data-testid="stMetric"] {
+        background-color: #ffffff;
+        border: 1px solid #e6e6e6;
         padding: 15px;
         border-radius: 10px;
-        border-left: 5px solid #FF4B4B;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+    }
+    /* Botones personalizados */
+    .stButton>button {
+        background-color: #FF4B4B;
+        color: white;
+        border-radius: 20px;
+        height: 50px;
+        width: 100%;
+        font-weight: bold;
+        border: none;
+    }
+    .stButton>button:hover {
+        background-color: #d43535;
+        color: white;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# --- 3. CARGAR MODELOS Y DATOS ---
+# --- CARGAR MODELOS Y DATOS ---
 @st.cache_resource
 def cargar_modelos():
     try:
@@ -52,163 +74,191 @@ def cargar_datos():
 
 df = cargar_datos()
 
-# --- 4. MENÚ LATERAL MEJORADO ---
+# --- BARRA LATERAL ELEGANTE ---
 with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/2830/2830305.png", width=80)
-    st.title("Market AI 🚀")
-    st.markdown("---")
-    st.write("**Panel de Control**")
-    opcion = st.radio("Selecciona una herramienta:", 
-        ["🏠 Inicio / Dashboard",
+    st.markdown("## **Market AI**")
+    st.markdown("Sistema de Inteligencia Logística")
+    st.write("---")
+    
+    opcion = st.radio("📍 **NAVEGACIÓN**", 
+        ["🏠 Dashboard Ejecutivo",
          "📈 Predicción de Ventas", 
-         "🚚 Riesgo de Logística", 
-         "👥 Segmentación de Clientes",
+         "🚚 Monitor de Riesgos", 
+         "👥 Segmentación Clientes",
          "🧬 Análisis Estructural"])
     
-    st.markdown("---")
-    st.caption("© 2025 Market Delivery Corp")
-    st.caption("Desarrollado por: Julio Aliaga")
+    st.write("---")
+    st.info("💡 **Tip:** Interactúa con los gráficos haciendo zoom.")
+    st.caption("© 2025 Julio Aliaga | v2.0 Pro")
 
-# --- 5. LÓGICA DE LA APLICACIÓN ---
+# --- LÓGICA PRINCIPAL ---
 
 if pack and df is not None:
     
-    # === PÁGINA DE INICIO (DASHBOARD) ===
-    if opcion == "🏠 Inicio / Dashboard":
-        st.title("🚚 Centro de Comando - Inteligencia Artificial")
-        st.markdown("### Bienvenido al sistema de optimización logística")
-        st.info("Este software integra 4 modelos de Machine Learning para la toma de decisiones estratégicas.")
+    # === PÁGINA DE INICIO: DASHBOARD EJECUTIVO ===
+    if opcion == "🏠 Dashboard Ejecutivo":
+        st.title("📊 Tablero de Control Estratégico")
+        st.markdown("Visión general del rendimiento operativo y predicciones de IA.")
         
-        # Métricas simuladas para que se vea como un sistema real en producción
-        col1, col2, col3, col4 = st.columns(4)
-        col1.metric("Ventas del Mes", "S/. 45,200", "+5%")
-        col2.metric("Clientes Nuevos", "124", "+12%")
-        col3.metric("Precisión de IA", "94%", "Estable")
-        col4.metric("Envíos a Tiempo", "98%", "+2%")
+        # Fila de métricas clave (KPIs)
+        kpi1, kpi2, kpi3, kpi4 = st.columns(4)
+        kpi1.metric("Ingresos Proyectados", "S/. 45,200", "▲ 5.2%")
+        kpi2.metric("Pedidos Procesados", "1,245", "▲ 12%")
+        kpi3.metric("Tasa de Puntualidad", "94.8%", "▼ 0.5%")
+        kpi4.metric("Precisión Modelos", "92%", "Estable")
         
         st.markdown("---")
-        st.image("https://images.unsplash.com/photo-1586880244406-556ebe35f282?q=80&w=2000&auto=format&fit=crop", caption="Logística Inteligente en Tiempo Real")
-
-    # === VISTA 1: REGRESIÓN LINEAL (CON INTERPRETACIÓN) ===
-    elif opcion == "📈 Predicción de Ventas":
-        st.title("📈 Pronóstico Inteligente de Demanda")
-        st.markdown("Estima cuánto venderás para optimizar tu inventario.")
         
-        c1, c2 = st.columns([1, 2])
+        # Gráficos interactivos de resumen
+        c1, c2 = st.columns(2)
         with c1:
-            st.markdown("### Parámetros")
-            precio = st.number_input("Precio del Producto (S/.)", 1.0, 100.0, 5.0)
+            st.subheader("📈 Tendencia de Ventas (Histórico)")
+            # Agrupar ventas por mes (simulado para el gráfico)
+            df['Mes'] = pd.to_datetime(df['Fecha']).dt.month_name()
+            ventas_mes = df.groupby('Mes')['Total_Venta'].sum().reset_index()
+            fig_ventas = px.bar(ventas_mes, x='Mes', y='Total_Venta', color='Total_Venta', 
+                                template='plotly_white', color_continuous_scale='Reds')
+            st.plotly_chart(fig_ventas, use_container_width=True)
+            
+        with c2:
+            st.subheader("🚚 Distribución de Tráfico")
+            fig_pie = px.pie(df, names='Nivel_Trafico', title='Condiciones de Ruta', 
+                             color_discrete_sequence=px.colors.sequential.RdBu, hole=0.4)
+            st.plotly_chart(fig_pie, use_container_width=True)
+
+    # === VISTA 1: REGRESIÓN LINEAL (PLOTLY) ===
+    elif opcion == "📈 Predicción de Ventas":
+        st.title("📈 Pronóstico de Demanda (IA)")
+        st.markdown("Modelo de **Regresión Lineal** para optimización de precios.")
+        
+        col1, col2 = st.columns([1, 2])
+        with col1:
+            st.markdown("### ⚙️ Simulador")
+            st.write("Ajusta el precio para ver la proyección.")
+            precio = st.number_input("Precio Unitario (S/.)", 1.0, 100.0, 5.0)
             
             if st.button("Calcular Proyección"):
                 modelo = pack['modelo_lineal']
                 pred = modelo.predict([[precio]])[0]
                 
-                st.markdown("---")
-                st.metric("Demanda Estimada", f"{int(pred)} Unidades")
-                
-                # Interpretación de Negocio
-                ingreso_proyectado = precio * int(pred)
-                st.success(f"💰 **Impacto:** Se proyectan ingresos por **S/. {ingreso_proyectado:.2f}**")
+                st.success(f"📦 Demanda: **{int(pred)} Unidades**")
+                st.info(f"💰 Ingreso: **S/. {precio * int(pred):.2f}**")
         
-        with c2:
-            st.markdown("### Tendencia de Precios")
-            fig, ax = plt.subplots(figsize=(6,4))
-            sns.regplot(x=df['Precio_Unitario'], y=df['Cantidad'], data=df, 
-                       scatter_kws={'alpha':0.5, 'color':'#3b8ed0'}, line_kws={'color':'red'}, ax=ax)
-            plt.title("Elasticidad Precio-Demanda")
-            st.pyplot(fig)
+        with col2:
+            st.markdown("### 🔍 Análisis de Elasticidad")
+            # Gráfico interactivo con línea de tendencia
+            fig = px.scatter(df, x="Precio_Unitario", y="Cantidad", trendline="ols",
+                             title="Relación Precio vs Cantidad (Interactivo)",
+                             labels={"Precio_Unitario": "Precio (S/.)", "Cantidad": "Unidades Vendidas"},
+                             template="plotly_white", opacity=0.6)
+            fig.update_traces(marker=dict(size=8, color='#FF4B4B'))
+            st.plotly_chart(fig, use_container_width=True)
 
-    # === VISTA 2: REGRESIÓN LOGÍSTICA (CON SEMÁFORO) ===
-    elif opcion == "🚚 Riesgo de Logística":
-        st.title("🚚 Monitor de Riesgos de Envío")
-        st.markdown("Sistema de alerta temprana para prevenir retrasos.")
+    # === VISTA 2: REGRESIÓN LOGÍSTICA (GAUGE CHART) ===
+    elif opcion == "🚚 Monitor de Riesgos":
+        st.title("🚚 Predicción de Retrasos")
+        st.markdown("Modelo de **Clasificación** para alertas logísticas.")
 
         c1, c2 = st.columns(2)
         with c1:
-            distancia = st.slider("Distancia de Ruta (Km)", 0.5, 20.0, 5.0)
-            trafico = st.selectbox("Nivel de Tráfico", ["Bajo", "Medio", "Alto"])
+            st.markdown("### 📡 Datos del Envío")
+            distancia = st.slider("Distancia (Km)", 0.5, 20.0, 5.0)
+            trafico = st.select_slider("Nivel de Tráfico", options=["Bajo", "Medio", "Alto"])
             
-            if st.button("Analizar Riesgo"):
+            if st.button("Analizar Probabilidad"):
                 le = pack['le_trafico']
                 modelo = pack['modelo_logistico']
                 trafico_num = le.transform([trafico])[0]
                 prob = modelo.predict_proba([[distancia, trafico_num]])[0][1]
                 
-                st.markdown("---")
-                st.metric("Probabilidad de Retraso", f"{round(prob*100, 1)}%")
+                # Gráfico de Velocímetro (Gauge)
+                fig_gauge = go.Figure(go.Indicator(
+                    mode = "gauge+number",
+                    value = prob * 100,
+                    title = {'text': "Probabilidad de Retraso"},
+                    gauge = {
+                        'axis': {'range': [None, 100]},
+                        'bar': {'color': "darkred" if prob > 0.5 else "green"},
+                        'steps': [
+                            {'range': [0, 30], 'color': "lightgreen"},
+                            {'range': [30, 70], 'color': "yellow"},
+                            {'range': [70, 100], 'color': "salmon"}],
+                    }))
+                st.plotly_chart(fig_gauge, use_container_width=True)
                 
-                # Semáforo de Riesgo (Lógica de Negocio)
-                if prob > 0.6:
-                    st.error("🚨 **ALERTA CRÍTICA:** Retraso inminente. Se sugiere cambiar de ruta o conductor.")
-                elif prob > 0.3:
-                    st.warning("⚠️ **ALERTA MEDIA:** Riesgo moderado. Monitorear envío.")
+                if prob > 0.5:
+                    st.error("🚨 **ALERTA:** Alta probabilidad de retraso.")
                 else:
-                    st.success("✅ **ENVÍO SEGURO:** Alta probabilidad de llegar a tiempo.")
+                    st.success("✅ **OK:** Envío seguro.")
 
         with c2:
-            st.write("### Historial de Incidencias")
-            conteo = df['Llega_Tarde'].value_counts()
-            fig, ax = plt.subplots(figsize=(5,3))
-            ax.pie(conteo, labels=['A Tiempo', 'Retrasado'], autopct='%1.1f%%', colors=['#4CAF50','#FF5252'])
-            st.pyplot(fig)
+            st.markdown("### 📊 Historial de Eficiencia")
+            fig_hist = px.histogram(df, x="Distancia_KM", color="Llega_Tarde", 
+                                    barmode="group", title="Retrasos por Distancia",
+                                    color_discrete_map={0: "green", 1: "red"},
+                                    labels={"Llega_Tarde": "Retraso (1=Sí)"})
+            st.plotly_chart(fig_hist, use_container_width=True)
 
-    # === VISTA 3: K-MEANS (CON ESTRATEGIAS) ===
-    elif opcion == "👥 Segmentación de Clientes":
-        st.title("👥 Perfilamiento de Clientes")
-        st.markdown("Identifica el tipo de cliente para aplicar marketing dirigido.")
+    # === VISTA 3: K-MEANS (SCATTER 3D O COLOR) ===
+    elif opcion == "👥 Segmentación Clientes":
+        st.title("👥 Clustering de Clientes")
+        st.markdown("Segmentación automática basada en comportamiento.")
         
-        c1, c2 = st.columns([1, 2])
-        with c1:
-            edad = st.number_input("Edad del Cliente", 18, 90, 30)
-            gasto = st.number_input("Gasto Mensual (S/.)", 0.0, 500.0, 50.0)
-            
-            if st.button("Identificar Segmento"):
-                scaler = pack['scaler_kmeans']
-                kmeans = pack['modelo_kmeans']
-                datos = scaler.transform([[edad, gasto]])
-                grupo = kmeans.predict(datos)[0]
+        tab1, tab2 = st.tabs(["🧩 Simulador de Perfil", "🗺️ Mapa de Clusters"])
+        
+        with tab1:
+            c1, c2 = st.columns(2)
+            with c1:
+                edad = st.number_input("Edad", 18, 90, 30)
+                gasto = st.number_input("Gasto (S/.)", 0.0, 500.0, 50.0)
                 
-                st.markdown("---")
-                st.metric("Grupo Asignado", f"Cluster {grupo}")
-                
-                # Estrategias de Negocio Automáticas
-                if grupo == 0:
-                    st.info("💡 **Estrategia:** Cliente Joven/Ahorrador -> Enviar cupones de descuento 2x1.")
-                elif grupo == 1:
-                    st.info("💡 **Estrategia:** Cliente Estándar -> Fidelizar con acumulación de puntos.")
-                else:
-                    st.success("💎 **Estrategia:** Cliente VIP -> Ofrecer Delivery Gratis y atención preferencial.")
+                if st.button("Clasificar Cliente"):
+                    scaler = pack['scaler_kmeans']
+                    kmeans = pack['modelo_kmeans']
+                    datos = scaler.transform([[edad, gasto]])
+                    grupo = kmeans.predict(datos)[0]
+                    
+                    st.balloons() # Efecto visual divertido
+                    st.metric("Segmento Asignado", f"Grupo {grupo}")
+                    
+                    if grupo == 0: st.info("🎯 **Estrategia:** Descuentos masivos.")
+                    elif grupo == 1: st.warning("🎯 **Estrategia:** Fidelización.")
+                    else: st.success("💎 **Estrategia:** Atención VIP.")
 
-        with c2:
-            st.write("### Mapa de Segmentos")
-            fig, ax = plt.subplots()
-            sns.scatterplot(data=df, x='Edad_Cliente', y='Gasto_Hist_Cliente', hue='ID_Cliente', palette='viridis', legend=False, ax=ax)
+        with tab2:
+            # Gráfico Interactivo de Clusters
+            df['Cluster'] = pack['modelo_kmeans'].fit_predict(pack['scaler_kmeans'].transform(df[['Edad_Cliente', 'Gasto_Hist_Cliente']]))
+            df['Cluster'] = df['Cluster'].astype(str) # Para que Plotly lo tome como categoría
             
-            # Dibujar el cliente actual como una estrella roja
-            if 'grupo' in locals():
-                plt.scatter(edad, gasto, c='red', s=200, marker='*', label='Nuevo Cliente')
-                plt.legend()
-                
-            plt.xlabel("Edad")
-            plt.ylabel("Gasto Histórico")
-            st.pyplot(fig)
+            fig_cluster = px.scatter(df, x="Edad_Cliente", y="Gasto_Hist_Cliente", color="Cluster",
+                                     title="Mapa Interactivo de Clientes",
+                                     symbol="Cluster", size_max=10,
+                                     template="plotly_white")
+            st.plotly_chart(fig_cluster, use_container_width=True)
 
-    # === VISTA 4: JERÁRQUICO ===
+    # === VISTA 4: JERÁRQUICO (ESTÁTICO PERO BONITO) ===
     elif opcion == "🧬 Análisis Estructural":
-        st.title("🧬 Dendrograma de Datos")
-        st.markdown("Visualización de las conexiones ocultas entre perfiles de clientes.")
+        st.title("🧬 Dendrograma Jerárquico")
+        st.markdown("Visualización de la estructura de datos.")
         
-        if st.button("Generar Árbol Jerárquico"):
-            with st.spinner('Procesando estructura de datos...'):
+        with st.expander("ℹ️ ¿Cómo leer este gráfico?", expanded=True):
+            st.write("Este gráfico muestra cómo se agrupan los clientes paso a paso. Las líneas verticales indican la distancia (diferencia) entre grupos.")
+        
+        if st.button("Generar Árbol"):
+            with st.spinner('Procesando...'):
                 muestra = df[['Edad_Cliente', 'Gasto_Hist_Cliente']].sample(50, random_state=42)
                 Z = linkage(muestra, 'ward')
                 
-                fig, ax = plt.subplots(figsize=(10, 5))
-                dendrogram(Z, ax=ax)
-                plt.title("Conexiones Jerárquicas")
-                plt.ylabel("Distancia (Similitud)")
+                fig, ax = plt.subplots(figsize=(12, 6))
+                dendrogram(Z, ax=ax, leaf_rotation=90, leaf_font_size=8)
+                plt.title("Dendrograma de Clientes", fontsize=15)
+                plt.xlabel("Clientes (Muestra)")
+                plt.ylabel("Distancia Euclidiana")
+                # Quitar bordes feos del gráfico matplotlib
+                ax.spines['top'].set_visible(False)
+                ax.spines['right'].set_visible(False)
                 st.pyplot(fig)
-                st.success("✅ Gráfico generado correctamente.")
 
 else:
-    st.error("⚠️ Error: No se encontraron los modelos. Ejecuta el entrenamiento primero.")
+    st.error("⚠️ Error: Ejecuta 'entrenar_modelos_final.py' primero.")
